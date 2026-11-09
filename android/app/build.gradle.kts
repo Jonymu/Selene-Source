@@ -11,7 +11,7 @@ plugins {
 android {
     namespace = "org.moontechlab.selene"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = "29.0.14033849"
+    ndkVersion = "28.2.13676358"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
