@@ -53,6 +53,8 @@ jobs:
           tag_name: v1.6.8
           name: Selene 1.6.8 (arm64)
           files: dist/*
+          overwrite_files: true
+          fail_on_unmatched_files: true
           body: |
             Selene 1.6.8 · android-arm64 · release
 
