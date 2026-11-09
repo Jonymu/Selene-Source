@@ -6,7 +6,7 @@ on:
     tags: ['v*']
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -41,6 +41,21 @@ jobs:
           mkdir -p dist
           cp build/app/outputs/flutter-apk/app-release.apk "dist/Selene-1.6.8-arm64.apk"
           cd dist && sha256sum *.apk > SHA256SUMS.txt && cat SHA256SUMS.txt
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.6.8
+          name: Selene 1.6.8 (arm64)
+          files: dist/*
+          body: |
+            Selene 1.6.8 · android-arm64 · release
+
+            SHA256 见 SHA256SUMS.txt
+
+            国内加速下载（镜像）:
+            - https://ghfast.top/https://github.com/Jonymu/Selene-Source/releases/download/v1.6.8/Selene-1.6.8-arm64.apk
+            - https://gh-proxy.com/https://github.com/Jonymu/Selene-Source/releases/download/v1.6.8/Selene-1.6.8-arm64.apk
 
       - uses: actions/upload-artifact@v4
         with:
