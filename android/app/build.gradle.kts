@@ -9,6 +9,11 @@ plugins {
 }
 
 android {
+    packaging {
+        jniLibs {
+            excludes += listOf("lib/armeabi-v7a/**", "lib/x86/**", "lib/x86_64/**")
+        }
+    }
     namespace = "org.moontechlab.selene"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = "28.2.13676358"
